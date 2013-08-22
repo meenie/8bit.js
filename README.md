@@ -22,7 +22,10 @@
 8. Tell the `music` everything is done: `music.end();`
 9. Start playing the music: `music.play()`
 
-**For a more robust example, please see: http://plnkr.co/edit/dv5iEPuMun0EIdmt9Y6n?p=preview**
+#### Examples
+
+* [Super Mario Bros Theme](http://plnkr.co/edit/dv5iEPuMun0EIdmt9Y6n?p=preview) - Created by me
+* [Tetris Theme](http://plnkr.co/edit/ev289bKEonSvqL3HVkDQ?p=preview) - Created by [rooktakesqueen](http://www.reddit.com/user/rooktakesqueen)
 
 #### API
 
