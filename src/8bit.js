@@ -250,6 +250,64 @@
         masterVolume.connect(ac.destination);
 
         /**
+         * Use JSON to load in a song to be played
+         *
+         * @param json
+         */
+        this.load = function(json) {
+            if (typeof json['instruments'] === 'undefined') {
+                throw new Error('You must define at least one instrument');
+            }
+            if (typeof json['notes'] === 'undefined') {
+                throw new Error('You must define notes for each instrument');
+            }
+
+            if (typeof json['timeSignature'] !== 'undefined') {
+                self.setTimeSignature(json['timeSignature'][0], json['timeSignature'][1]);
+            }
+
+            if (typeof json['tempo'] !== 'undefined') {
+                self.setTempo(json['tempo']);
+            }
+
+            var instruments = {};
+            for (var attr in json['instruments']) {
+                if (! json['instruments'].hasOwnProperty(attr)) {
+                    continue;
+                }
+
+                instruments[attr] = self.createInstrument(json['instruments'][attr]);
+            }
+
+            for (var instrument in json['notes']) {
+                if (! json['notes'].hasOwnProperty(instrument)) {
+                    continue;
+                }
+                json['notes'][instrument].forEach(function(note) {
+                    // Use shorthand if it's a string
+                    if (typeof note === 'string') {
+                        note = note.split('|');
+                        if ('rest' === note[0]) {
+                            instruments[instrument].rest(note[1]);
+                        } else {
+                            instruments[instrument].note(note[0], note[1], note[2]);
+                        }
+                    // Otherwise use longhand
+                    } else {
+                        if ('rest' === note.type) {
+                            instruments[instrument].rest(note.rhythm);
+                        } else if ('note' === note.type) {
+                            instruments[instrument].note(note.pitch, note.rhythm, note.tie);
+                        }
+                    }
+                });
+                instruments[instrument].finish();
+            }
+
+            self.end();
+        };
+
+        /**
          * Create a new instrument
          *
          * @param [waveform] - defaults to sine
