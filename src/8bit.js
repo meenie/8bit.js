@@ -112,7 +112,7 @@
                      * @param newVolumeLevel
                      */
                     this.setVolume = function(newVolumeLevel) {
-                        volumeLevel = newVolumeLevel;
+                        volumeLevel = newVolumeLevel / 100;
 
                         return self;
                     };
