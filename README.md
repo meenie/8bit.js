@@ -148,7 +148,7 @@
 <tr>
 <td><code>repeat(times)</code></td>
 <td><code>times: 1</code></td>
-<td>Used in conjuction with <code>repeatStart()</code>. Pass in how many times the section should be repeated.  If no <code>repeatStart()</code> is set, it goes from the beginning.</td>
+<td>Used in conjunction with <code>repeatStart()</code>. Pass in how many times the section should be repeated.  If no <code>repeatStart()</code> is set, it goes from the beginning.</td>
 </tr>
 <tr>
 <td><code>finish()</code></td>
