@@ -283,6 +283,9 @@
          * Set Master Volume
          */
         this.setMasterVolume = function(newVolume) {
+            if (newVolume > 1) {
+                newVolume = newVolume / 100;
+            }
             masterVolumeLevel = newVolume;
             masterVolume.gain.value = masterVolumeLevel;
         };
@@ -480,24 +483,15 @@
             if ('up' !== direction && 'down' !== direction) {
                 throw new Error('Direction must be either up or down.');
             }
-            var i = 100 * masterVolumeLevel,
-                timeout = function() {
-                    setTimeout(function() {
-                        if (i > 0) {
-                            i = i - 2;
-                            i = i < 0 ? 0 : i;
-                            var gain = 'up' === direction ? masterVolumeLevel * 100 - i : i;
-                            masterVolume.gain.value = gain / 100;
-                            timeout();
-                        } else {
-                            if (typeof cb === 'function') {
-                                cb();
-                            }
-                        }
-                    }, 1);
-                };
+            var now = ac.currentTime;
+            masterVolume.gain.cancelScheduledValues(now);
+            if ('up' === direction) {
+                masterVolume.gain.linearRampToValueAtTime(masterVolumeLevel, now + 0.1);
+            } else {
+                masterVolume.gain.linearRampToValueAtTime(0.0, now + 0.1);
+            }
 
-            timeout();
+            setTimeout(cb, 100);
         }
     }
 
