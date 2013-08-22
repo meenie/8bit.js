@@ -103,7 +103,7 @@
 <th>Default Values</th>
 </tr>
 <tr>
-<td valign="top">note(pitch, note, tie)</td>
+<td valign="top"><code>note(pitch, note, tie)</code></td>
 <td valign="top"><code>pitch</code> Must be set<br><code>note</code> Must be set<br><code>tie: true</code></td>
 <td>Adds a note to the stack of notes for the particular instrument.<br>
     <code>pitch</code> can be any note between <code>C0</code> and <code>C8</code> (e.x. Bb3 or G#7)<br>
