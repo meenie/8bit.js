@@ -153,3 +153,7 @@
 <td>This will mark the instrument as complete and add it's notes to the master list.  If this is missing, the instrument will not be played.</td>
 </tr>
 </table>
+
+### Copyright and License
+
+Copyright 2013 Cody Lundquist under the [MIT License (MIT)](LICENSE).
