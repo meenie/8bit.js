@@ -26,6 +26,7 @@
 
 * [Super Mario Bros Theme](http://plnkr.co/edit/dv5iEPuMun0EIdmt9Y6n?p=preview) - Created by me
 * [Tetris Theme](http://plnkr.co/edit/ev289bKEonSvqL3HVkDQ?p=preview) - Created by [rooktakesqueen](http://www.reddit.com/user/rooktakesqueen)
+* [Zelda Main Theme](http://plnkr.co/edit/QCpfTLwV0fDWvJ1gmlXT?p=preview) (short version :() - Created by me
 
 #### API
 
