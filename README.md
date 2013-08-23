@@ -27,6 +27,7 @@
 * [Super Mario Bros Theme](http://plnkr.co/edit/dv5iEPuMun0EIdmt9Y6n?p=preview) - Created by me
 * [Tetris Theme](http://plnkr.co/edit/ev289bKEonSvqL3HVkDQ?p=preview) - Created by [rooktakesqueen](http://www.reddit.com/user/rooktakesqueen)
 * [Zelda Main Theme](http://plnkr.co/edit/nVP3gnYrBWc7D7CMxpXv?p=preview) - Created by [legosjedi](http://www.reddit.com/r/javascript/comments/1kuskc/8bitjs_audio_library_write_music_using_8bit/cbthhwx)
+* [Cities](http://plnkr.co/edit/KYHDjzVTYsCKw8ibm6Bt?p=preview) - Original Composition by GFM (If you want to use this in a project, please contact le9ato@yahoo.com)
 
 #### API
 
