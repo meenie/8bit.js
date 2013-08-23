@@ -2,7 +2,7 @@
   "name": "8bit",
   "version": "0.0.1",
   "description": "8Bit.js Audio Library - Write music using 8bit oscillation sounds.",
-  "main": "8bit.js",
+  "main": "src/8bit.js",
   "repository": {
     "type": "git",
     "url": "ssh://git@stash.4mation.com.au:7999/game/audio.git"
