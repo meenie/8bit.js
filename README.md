@@ -22,7 +22,12 @@
 8. Tell the `music` everything is done: `music.end();`
 9. Start playing the music: `music.play()`
 
-**For a more robust example, please see: http://plnkr.co/edit/dv5iEPuMun0EIdmt9Y6n?p=preview**
+#### Examples
+
+* [Super Mario Bros Theme](http://plnkr.co/edit/dv5iEPuMun0EIdmt9Y6n?p=preview) - Created by me
+* [Tetris Theme](http://plnkr.co/edit/ev289bKEonSvqL3HVkDQ?p=preview) - Created by [rooktakesqueen](http://www.reddit.com/user/rooktakesqueen)
+* [Zelda Main Theme](http://plnkr.co/edit/nVP3gnYrBWc7D7CMxpXv?p=preview) - Created by [legosjedi](http://www.reddit.com/r/javascript/comments/1kuskc/8bitjs_audio_library_write_music_using_8bit/cbthhwx)
+* [Cities](http://plnkr.co/edit/KYHDjzVTYsCKw8ibm6Bt?p=preview) - Original Composition by GFM (If you want to use this in a project, please contact le9ato@yahoo.com)
 
 #### API
 
@@ -103,7 +108,7 @@
 <th>Default Values</th>
 </tr>
 <tr>
-<td valign="top">note(pitch, note, tie)</td>
+<td valign="top"><code>note(pitch, note, tie)</code></td>
 <td valign="top"><code>pitch</code> Must be set<br><code>note</code> Must be set<br><code>tie: true</code></td>
 <td>Adds a note to the stack of notes for the particular instrument.<br>
     <code>pitch</code> can be any note between <code>C0</code> and <code>C8</code> (e.x. Bb3 or G#7)<br>
@@ -145,7 +150,7 @@
 <tr>
 <td><code>repeat(times)</code></td>
 <td><code>times: 1</code></td>
-<td>Used in confunction with <code>repeatStart()</code>. Pass in how many times the section should be repeated.  If no <code>repeatStart()</code> is set, it goes from the beginning.</td>
+<td>Used in conjunction with <code>repeatStart()</code>. Pass in how many times the section should be repeated.  If no <code>repeatStart()</code> is set, it goes from the beginning.</td>
 </tr>
 <tr>
 <td><code>finish()</code></td>
@@ -153,3 +158,7 @@
 <td>This will mark the instrument as complete and add it's notes to the master list.  If this is missing, the instrument will not be played.</td>
 </tr>
 </table>
+
+### Copyright and License
+
+Copyright 2013 Cody Lundquist under the [MIT License (MIT)](LICENSE).
