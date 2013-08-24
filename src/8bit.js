@@ -141,7 +141,6 @@
                         });
 
                         notesBuffer.push({
-                            volume: volumeLevel,
                             pitch: pitch,
                             pitchType: pitchType,
                             duration: duration,
@@ -168,7 +167,6 @@
                         var duration = getDuration(note);
 
                         notesBuffer.push({
-                            volume: volumeLevel,
                             pitch: false,
                             pitchType: 0,
                             duration: duration,
@@ -233,7 +231,11 @@
                         notesBuffer.forEach(function(note) {
                             totalDuration += note.duration;
                         });
-                        instruments.push({notes: notesBuffer, totalDuration: totalDuration});
+                        instruments.push({
+                            notes: notesBuffer,
+                            totalDuration: totalDuration,
+                            volumeLevel: volumeLevel
+                        });
                     };
                 }
 
@@ -370,14 +372,21 @@
                 if (totalDuration < instruments[i].totalDuration) {
                     totalDuration = instruments[i].totalDuration;
                 }
-                var theseNotes = instruments[i].notes;
+
+                var theseNotes = instruments[i].notes,
+                    // Create volume for this instrument
+                    volume = ac.createGain();
+
+                // Connect volume gain to the Master Volume;
+                volume.connect(masterVolume);
+                // Set the volume for this note
+                volume.gain.value = instruments[i].volumeLevel;
+
                 for (var ii = 0; ii < theseNotes.length; ii++) {
                     var pitch = theseNotes[ii].pitch,
                         startTime = theseNotes[ii].startTime,
                         stopTime = theseNotes[ii].stopTime,
-                        pitchType = theseNotes[ii].pitchType,
-                        noteVolume = theseNotes[ii].volume
-                    ;
+                        pitchType = theseNotes[ii].pitchType;
 
                     // No pitch, then it's a rest and we don't need an oscillator
                     if (! pitch) {
@@ -386,13 +395,8 @@
 
                     pitch.split(',').forEach(function(p) {
                         p = p.trim();
-                        var o = ac.createOscillator(),
-                            volume = ac.createGain();
+                        var o = ac.createOscillator();
 
-                        // Connect volume gain to the Master Volume;
-                        volume.connect(masterVolume);
-                        // Set the volume for this note
-                        volume.gain.value = noteVolume;
                         // Connect note to volume
                         o.connect(volume);
                         // Set pitch type
