@@ -65,7 +65,7 @@
                 self.stop(false);
                 if (loop) {
                     self.play();
-                } else {
+                } else if(typeof cb === 'function') {
                     cb();
                 }
             },
