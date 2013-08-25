@@ -1,6 +1,6 @@
 {
-  "name": "8bit.js",
-  "version": "0.0.1",
+  "name": "8bit",
+  "version": "0.1.0",
   "description": "8Bit.js Audio Library - Write music using 8bit oscillation sounds.",
   "main": "src/8bit.js",
   "repository": {

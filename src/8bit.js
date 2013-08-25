@@ -257,6 +257,9 @@
          * @param json
          */
         this.load = function(json) {
+            if (! json) {
+                throw new Error('JSON is required for this method to work.');
+            }
             // Need to have at least instruments and notes
             if (typeof json['instruments'] === 'undefined') {
                 throw new Error('You must define at least one instrument');
