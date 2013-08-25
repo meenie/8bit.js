@@ -257,6 +257,7 @@
          * @param json
          */
         this.load = function(json) {
+            // Need to have at least instruments and notes
             if (typeof json['instruments'] === 'undefined') {
                 throw new Error('You must define at least one instrument');
             }
@@ -264,14 +265,17 @@
                 throw new Error('You must define notes for each instrument');
             }
 
+            // Shall we set a time signature?
             if (typeof json['timeSignature'] !== 'undefined') {
                 self.setTimeSignature(json['timeSignature'][0], json['timeSignature'][1]);
             }
 
+            // Maybe some tempo?
             if (typeof json['tempo'] !== 'undefined') {
                 self.setTempo(json['tempo']);
             }
 
+            // Lets create some instruments
             var instruments = {};
             for (var attr in json['instruments']) {
                 if (! json['instruments'].hasOwnProperty(attr)) {
@@ -281,6 +285,7 @@
                 instruments[attr] = self.createInstrument(json['instruments'][attr]);
             }
 
+            // Now lets add in each of the notes
             for (var instrument in json['notes']) {
                 if (! json['notes'].hasOwnProperty(instrument)) {
                     continue;
@@ -306,6 +311,7 @@
                 instruments[instrument].finish();
             }
 
+            // Looks like we are done, lets press it.
             self.end();
         };
 

@@ -34,9 +34,9 @@
 ##### EightBit Class
 <table>
 <tr>
-<th>Method</th>
-<th>Params</th>
-<th>Default Values</th>
+<th width="20%">Method</th>
+<th width="15%">Params</th>
+<th width="65%">Description</th>
 </tr>
 <tr>
 <td><code>setTimeSignature(top, bottom)</code></td>
@@ -98,18 +98,49 @@
 <td><code>waveForm: sine</code></td>
 <td>Creates an instrument that you can add notes/rests with.  The possible instrument types are: <code>sine</code>, <code>square</code>, <code>sawtooth</code>, and <code>triangle</code></td>
 </tr>
+<tr>
+<td valign="top"><code>load(json)</code></td>
+<td valign="top"><code>json: JSON</code></td>
+<td>Load a song into 8bit.js using JSON. Format is:<br>
+<pre>{
+    timeSignature: [4, 4],
+    tempo: 100,
+    instruments: {
+        rightHand: 'square',
+        leftHand: 'sawtooth'
+    },
+    notes: {
+        // Shorthand notation
+        rightHand: [
+            'E5, F#4|quarter|tie',
+            'rest|quarter',
+            'E5, F#4|quarter',
+            'rest|quarter'
+        ],
+        // More verbose notation
+        leftHand: [
+            {
+                type: 'note',
+                pitch: 'D3',
+                rhythm: 'quarter'
+            }
+        ]
+    }
+}</pre>
+</td>
+</tr>
 </table>
 
 ##### Instrument Class - Created by using the `EightBit:createInstrument()` method.
 <table>
 <tr>
-<th>Method</th>
-<th>Params</th>
-<th>Default Values</th>
+<th width="20%">Method</th>
+<th width="15%">Params</th>
+<th width="65%">Description</th>
 </tr>
 <tr>
 <td valign="top"><code>note(pitch, note, tie)</code></td>
-<td valign="top"><code>pitch</code> Must be set<br><code>note</code> Must be set<br><code>tie: true</code></td>
+<td valign="top"><code>pitch</code> Must be set<br><code>note</code> Must be set<br><code>tie: false</code></td>
 <td>Adds a note to the stack of notes for the particular instrument.<br>
     <code>pitch</code> can be any note between <code>C0</code> and <code>C8</code> (e.x. Bb3 or G#7)<br>
     <code>note</code> can be any from the list below
